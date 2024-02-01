@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.nav_bar_module_java_tutorial.HomeFragment"
+
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_prg_task"
+        android:name="com.example.nav_bar_module_java_tutorial.ProgTaskFragment"
+
+        tools:layout="@layout/fragment_prog_task" />
+
+    <fragment
+        android:id="@+id/navigation_tutorial"
+        android:name="com.example.nav_bar_module_java_tutorial.TutorialFragment"
+
+        tools:layout="@layout/fragment_tutorial" />
+    <fragment
+        android:id="@+id/navigation_inter_que"
+        android:name="com.example.nav_bar_module_java_tutorial.InterviewQueFragment"
+
+        tools:layout="@layout/fragment_interview_que" />
+
+    <fragment
+        android:id="@+id/navigation_quiz"
+        android:name="com.example.nav_bar_module_java_tutorial.QuizFragment"
+
+        tools:layout="@layout/fragment_quiz" />
+</navigation>
