@@ -1,14 +1,880 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="@drawable/gredient3"
+        android:id="@+id/l1"
+        >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_height="50dp"
+            android:src="@drawable/java" />
+
+        <TextView
+            android:id="@+id/locationName"
+            android:layout_width="wrap_content"
+            android:visibility="visible"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:layout_toRightOf="@+id/icon"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:text="Java Tutorial"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+
+        <ImageView
+            android:id="@+id/changeLanguageButton"
+            android:layout_width="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="50dp"
+            android:src="@drawable/user" />
+    </RelativeLayout>
+
+
+
+    <ScrollView
+        android:layout_below="@+id/l1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="home" />
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/cardViewWelcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_card"
+                android:backgroundTint="@color/white"
+                android:elevation="13dp"
+                android:orientation="vertical">
 
-</FrameLayout>
+                <RelativeLayout
+                    android:id="@+id/layout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+
+                    >
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="50dp"
+                        android:background="#C80BEA" />
+
+                    <TextView
+                        android:id="@+id/text1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="Completed"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/text2"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text1"
+                        android:layout_marginStart="20dp"
+                        android:visibility="gone"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:drawableLeft="@drawable/prog6"
+                        android:drawablePadding="5dp"
+                        android:text="  22" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exercises"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:foregroundGravity="center"
+                        android:layout_below="@+id/text1"
+                        android:layout_toRightOf="@+id/text2"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layout1"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+
+                    >
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="50dp"
+                        android:background="#FA9909" />
+
+                    <TextView
+                        android:id="@+id/text3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="Remaining"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/text4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text3"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="20dp"
+                        android:drawableLeft="@drawable/prog8"
+                        android:text="  200" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exercises"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:foregroundGravity="center"
+                        android:layout_below="@+id/text3"
+                        android:layout_toRightOf="@+id/text4"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="30dp">
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar8"
+                        style="@style/CircularDeterminateProgressBar"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_centerInParent="true"
+                        tools:progress="60" />
+
+                    <TextView
+                        android:id="@+id/progress_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60%"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:layout_centerInParent="true"/>
+
+                    <TextView
+                        android:id="@+id/progress_text2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Progress"
+                        android:textSize="10sp"
+                        android:layout_below="@+id/progress_text"
+                        android:textColor="@android:color/black"
+                        android:layout_centerHorizontal="true"/>
+                </RelativeLayout>
+
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout2"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/gredient2"
+                    android:text="Learn Java !!!"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+                <!-- Your CardView content goes here -->
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@+id/cardViewWelcome">
+
+                <TextView
+                    android:id="@+id/content1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Content"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_marginEnd="30dp"
+                    android:layout_toRightOf="@id/content1"
+                    android:layout_marginStart="12dp"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/content"
+                android:id="@+id/horiRV"
+                android:layout_marginHorizontal="30dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/c1"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/gredient8">
+
+                            <TextView
+
+                                android:id="@+id/text_tutorial1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="Tutorial"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+
+                            <ImageView
+                                android:id="@+id/tutorial_open"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="20dp"
+                                android:src="@drawable/baseline_arrow_forward_24" />
+
+                            <View
+                                android:id="@+id/view3"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_below="@+id/text_tutorial1"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:background="@color/white" />
+
+                            <TextView
+                                android:id="@+id/num_tutorial_topics"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/view3"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="222"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/view3"
+                                android:layout_alignBaseline="@+id/num_tutorial_topics"
+                                android:layout_toRightOf="@+id/num_tutorial_topics"
+                                android:text="Topics"
+                                android:textColor="@color/white"
+                                android:textSize="12dp" />
+
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="200dp"
+                        android:layout_height="140dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardCornerRadius="16dp"
+                        android:id="@+id/c2"
+                        app:cardElevation="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/gredient7"
+                            >
+
+                            <TextView
+
+                                android:id="@+id/text_program"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="Programs"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+                            <ImageView
+                                android:id="@+id/program_open"
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/baseline_arrow_forward_24"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_alignParentRight="true"
+                                />
+                            <View
+                                android:id="@+id/view2"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_below="@+id/text_program"
+                                android:background="@color/white"
+                                />
+
+                            <TextView
+                                android:id="@+id/num_program"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/view2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="187"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Programs"
+                                android:textSize="12dp"
+                                android:textColor="@color/white"
+                                android:layout_alignBaseline="@+id/num_program"
+                                android:layout_below="@+id/view2"
+                                android:layout_toRightOf="@+id/num_program"
+                                />
+
+
+
+
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="200dp"
+                        android:layout_height="140dp"
+                        android:id="@+id/c3"
+                        app:cardUseCompatPadding="true"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/gredient5"
+                            >
+
+                            <TextView
+
+                                android:id="@+id/text_tutorial"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="Syntax"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+                            <ImageView
+                                android:id="@+id/syntax_open"
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/baseline_arrow_forward_24"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_alignParentRight="true"
+                                />
+                            <View
+                                android:id="@+id/view"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_below="@+id/text_tutorial"
+                                android:background="@color/white"
+                                />
+
+                            <TextView
+                                android:id="@+id/num_Topics"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/view"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="114"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Topics"
+                                android:textSize="12dp"
+                                android:textColor="@color/white"
+                                android:layout_alignBaseline="@+id/num_Topics"
+                                android:layout_below="@+id/view"
+                                android:layout_toRightOf="@+id/num_Topics"
+                                />
+
+
+
+
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="200dp"
+                        android:layout_height="140dp"
+                        app:cardUseCompatPadding="true"
+                        android:id="@+id/c4"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/gredient3"
+                            >
+
+                            <TextView
+
+                                android:id="@+id/text_interview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="Interview"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+                            <ImageView
+                                android:id="@+id/interview_open"
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/baseline_arrow_forward_24"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_alignParentRight="true"
+                                />
+                            <View
+                                android:id="@+id/view4"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_below="@+id/text_interview"
+                                android:background="@color/white"
+                                />
+
+                            <TextView
+                                android:id="@+id/num_interview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/view4"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="49"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Questions"
+                                android:textSize="12dp"
+                                android:textColor="@color/white"
+                                android:layout_alignBaseline="@+id/num_interview"
+                                android:layout_below="@+id/view4"
+                                android:layout_toRightOf="@+id/num_interview"
+                                />
+
+
+
+
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="200dp"
+                        android:layout_height="140dp"
+                        app:cardUseCompatPadding="true"
+                        android:id="@+id/c5"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/gredient4"
+                            >
+
+                            <TextView
+
+                                android:id="@+id/text_quiz"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="Quiz"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+                            <ImageView
+                                android:id="@+id/quiz_open"
+
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/baseline_arrow_forward_24"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_alignParentRight="true"
+                                />
+                            <View
+                                android:id="@+id/view5"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_below="@+id/text_quiz"
+                                android:background="@color/white"
+                                />
+
+                            <TextView
+                                android:id="@+id/num_que"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/view5"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="75"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Questions"
+                                android:textSize="12dp"
+                                android:textColor="@color/white"
+                                android:layout_alignBaseline="@+id/num_que"
+                                android:layout_below="@+id/view5"
+                                android:layout_toRightOf="@+id/num_que"
+                                />
+
+
+
+
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </HorizontalScrollView>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/quiz_scores"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@+id/horiRV">
+
+                <TextView
+                    android:id="@+id/text_quiz_scores"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Quiz Scores"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_marginEnd="30dp"
+                    android:layout_toRightOf="@id/text_quiz_scores"
+                    android:layout_marginStart="12dp"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                app:cardUseCompatPadding="true"
+                android:layout_marginHorizontal="20dp"
+                android:layout_below="@+id/quiz_scores"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:background="@color/white"
+                    >
+
+                    <TextView
+                        android:id="@+id/text_avg_scores"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Average Scores"
+                        android:textSize="17dp"
+                        />
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_avg_scores"
+                        android:progressTint="#F44336"
+                        android:secondaryProgressTint="@color/teal_200"
+                        android:progress="25"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        tools:ignore="MissingConstraints" />
+                    <TextView
+                        android:id="@+id/score2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Score: 25%"
+                        android:layout_marginTop="3dp"
+                        android:layout_below="@+id/progress_bar"
+                        />
+                    <TextView
+                        android:id="@+id/text_last_attempted"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Last Attempted"
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:layout_alignParentRight="true"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@+id/text_avg_scores"
+                        />
+                    <TextView
+                        android:id="@+id/clock"
+                        android:visibility="gone"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  26 january 2024"
+                        android:layout_alignParentRight="true"
+                        android:textAlignment="viewEnd"
+
+                        android:layout_alignBaseline="@+id/progress_bar"
+                        android:drawableLeft="@drawable/clock"
+                        android:layout_below="@+id/text_last_attempted"
+                        />
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/text_avg_best"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Average Best"
+                        android:layout_below="@+id/score2"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                    <View
+                        android:id="@+id/view7"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/text_avg_best"
+                        android:background="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerVertical="true"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/view7"
+                        android:layout_marginTop="20dp"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:id="@+id/beginner_layout"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:id="@+id/text_beginner"
+                                android:textStyle="bold"
+                                android:text="Beginner"
+                                />
+
+                            <ProgressBar
+                                android:id="@+id/pbar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/text_beginner"
+                                android:layout_centerInParent="true"
+                                android:progress="70"
+                                android:progressTint="@color/teal_200"
+                                android:secondaryProgressTint="@color/teal_200"
+                                tools:ignore="MissingConstraints" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/text_beginner_score"
+                                android:text="Score : 30%"
+                                android:layout_below="@id/pbar"
+                                />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:id="@+id/intermediate_layout"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/text_intermediate"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:text="Intermediate"
+                                />
+                            <ProgressBar
+                                android:id="@+id/progress_bar2"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+
+                                android:layout_below="@+id/text_intermediate"
+                                android:progressTint="#0632D1"
+                                android:secondaryProgressTint="@color/teal_200"
+                                android:progress="70"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                tools:ignore="MissingConstraints" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Score : 20%"
+                                android:layout_below="@id/progress_bar2"
+
+                                />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_alignParentRight="true"
+
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/text_expert"
+                                android:textStyle="bold"
+                                android:text="Expert"
+                                android:textColor="@color/black"
+                                />
+                            <ProgressBar
+                                android:id="@+id/progress_bar3"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/text_expert"
+                                android:progressTint="@color/purple_500"
+                                android:secondaryProgressTint="@color/teal_200"
+                                android:progress="70"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                tools:ignore="MissingConstraints" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Not Attempted"
+                                android:layout_below="@id/progress_bar3"
+                                />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

@@ -8,5 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="underline">#BDB8B8</color>
+    <color name="blue">#3346B3</color>
+    <color name="blue_black">#FF000000</color>
+    <color name="line_color">#7B65A3</color>
+    <color name="Quiz_text__color">#5E07FA</color>
+
 
 </resources>

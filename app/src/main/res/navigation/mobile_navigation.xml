@@ -8,13 +8,16 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.nav_bar_module_java_tutorial.HomeFragment"
+        tools:layout="@layout/fragment_home">
 
-        tools:layout="@layout/fragment_home" />
+        <action
+            android:id="@+id/action_homeFragment_to_tutorialFragment"
+            app:destination="@id/navigation_tutorial" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_prg_task"
         android:name="com.example.nav_bar_module_java_tutorial.ProgTaskFragment"
-
         tools:layout="@layout/fragment_prog_task" />
 
     <fragment
