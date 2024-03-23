@@ -6,49 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".InterviewQueFragment">
 
-
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:background="@drawable/gredient9"
-        android:id="@+id/tool_layout"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_height="50dp"
-            android:src="@drawable/java" />
-
-        <TextView
-            android:id="@+id/locationName"
-            android:layout_width="wrap_content"
-            android:visibility="visible"
-            android:textStyle="bold"
-            android:padding="10dp"
-            android:layout_toRightOf="@+id/icon"
-            android:layout_centerVertical="true"
-            android:layout_height="wrap_content"
-            android:text="Java Tutorial"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-
-        <ImageView
-            android:id="@+id/changeLanguageButton"
-            android:layout_width="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_height="50dp"
-            android:src="@drawable/user" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_below="@+id/tool_layout"
-
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
