@@ -54,4 +54,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
     //lotte animation
     implementation("com.airbnb.android:lottie:6.1.0")
+
+    //for text size
+    implementation("com.intuit.sdp:sdp-android:1.0.6")
 }

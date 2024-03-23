@@ -32,10 +32,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.programOpen.setOnClickListener {
-            // Navigate to the ProgTaskFragment
-            findNavController().navigate(R.id.action_homeFragment_to_tutorialFragment)
-        }
+//        binding.programOpen.setOnClickListener {
+//            // Navigate to the ProgTaskFragment
+//            findNavController().navigate(R.id.action_homeFragment_to_tutorialFragment)
+//        }
         // Hide ActionBar
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
 

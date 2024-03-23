@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nav_bar_module_java_tutorial.databinding.FragmentHomeBinding
 import com.example.nav_bar_module_java_tutorial.databinding.FragmentInterviewQueBinding
 import java.util.Locale
 
@@ -250,7 +249,7 @@ class LanguageAdapter(private var mList: List<LanguageData>,val context: Context
         viewToAnimate.startAnimation(slide_in)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.each_item, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.each_item_interview_que, parent, false)
         return LanguageViewHolder(view)
     }
 
