@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.nav_bar_module_java_tutorial.HomeFragment"
+        android:name="com.example.nav_bar_module_java_tutorial.HomeFragment.HomeFragment"
         tools:layout="@layout/fragment_home">
 
         <action
@@ -17,23 +17,23 @@
 
     <fragment
         android:id="@+id/navigation_prg_task"
-        android:name="com.example.nav_bar_module_java_tutorial.ProgTaskFragment"
-        tools:layout="@layout/fragment_prog_task" />
+        android:name="com.example.nav_bar_module_java_tutorial.ProgramAndSyntaxFragment.ProgramAndSyntaxFragment"
+        tools:layout="@layout/fragment_program_and_syntax" />
 
     <fragment
         android:id="@+id/navigation_tutorial"
-        android:name="com.example.nav_bar_module_java_tutorial.TutorialFragment"
+        android:name="com.example.nav_bar_module_java_tutorial.TutorialFragment.TutorialFragment"
 
         tools:layout="@layout/fragment_tutorial" />
     <fragment
         android:id="@+id/navigation_inter_que"
-        android:name="com.example.nav_bar_module_java_tutorial.InterviewQueFragment"
+        android:name="com.example.nav_bar_module_java_tutorial.QuestionsFragment.QuestionsFragment"
 
-        tools:layout="@layout/fragment_interview_que" />
+        tools:layout="@layout/fragment_questions" />
 
     <fragment
         android:id="@+id/navigation_quiz"
-        android:name="com.example.nav_bar_module_java_tutorial.QuizFragment"
+        android:name="com.example.nav_bar_module_java_tutorial.QuizFragment.QuizFragment"
 
         tools:layout="@layout/fragment_quiz" />
 </navigation>

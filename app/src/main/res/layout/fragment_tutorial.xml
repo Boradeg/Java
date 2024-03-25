@@ -5,73 +5,12 @@
     android:layout_height="match_parent"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".TutorialFragment">
-
-    <LinearLayout
+    tools:context=".TutorialFragment.TutorialFragment">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        tools:listitem="@layout/each_item_tutorial"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
-
-        android:background="@drawable/gredient9"
-        android:id="@+id/tool_layout3"
-        tools:ignore="MissingConstraints">
-
-
-
-        <TextView
-            android:id="@+id/locationName"
-            android:layout_width="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:visibility="visible"
-            android:textStyle="bold"
-            android:text="Welcome"
-            android:layout_marginTop="20dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/locationName2"
-            android:layout_width="wrap_content"
-            android:visibility="visible"
-            android:layout_below="@+id/locationName"
-            android:text="Gokul Borade"
-            android:layout_marginTop="6dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
-
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView"
-            android:layout_below="@+id/changeLanguageButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-             android:layout_marginHorizontal="10dp"
-            android:iconifiedByDefault="false"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
-            app:queryHint="shjk"
-            android:background="@drawable/bgcard"
-            tools:targetApi="p">
-        </androidx.appcompat.widget.SearchView>
-    </LinearLayout>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
-        <ImageView
-            android:id="@+id/changeLanguageButton"
-            android:layout_width="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/user" />
-    </RelativeLayout>
-
-
-
+        android:layout_height="match_parent"
+        />
 
 </FrameLayout>

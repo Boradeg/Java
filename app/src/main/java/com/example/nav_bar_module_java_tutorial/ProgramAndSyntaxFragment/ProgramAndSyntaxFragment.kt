@@ -1,4 +1,4 @@
-package com.example.nav_bar_module_java_tutorial
+package com.example.nav_bar_module_java_tutorial.ProgramAndSyntaxFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,21 +8,22 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nav_bar_module_java_tutorial.databinding.FragmentProgTaskBinding
+import com.example.nav_bar_module_java_tutorial.R
+import com.example.nav_bar_module_java_tutorial.databinding.FragmentProgramAndSyntaxBinding
 
-class ProgTaskFragment : Fragment() {
+class ProgramAndSyntaxFragment : Fragment() {
 
     private var recyclerView: RecyclerView? = null
     private var mList: List<DataModel>? = null
     private var adapter: ItemAdapter? = null
-    private var _binding: FragmentProgTaskBinding? = null
+    private var _binding: FragmentProgramAndSyntaxBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProgTaskBinding.inflate(inflater, container, false)
+        _binding = FragmentProgramAndSyntaxBinding.inflate(inflater, container, false)
 
 
         binding.cardLayout1.setOnClickListener {

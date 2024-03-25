@@ -1,4 +1,4 @@
-package com.example.nav_bar_module_java_tutorial
+package com.example.nav_bar_module_java_tutorial.HomeFragment
 
 import android.content.Intent
 import android.os.Bundle

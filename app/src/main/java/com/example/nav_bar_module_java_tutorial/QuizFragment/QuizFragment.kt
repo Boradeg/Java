@@ -1,4 +1,4 @@
-package com.example.nav_bar_module_java_tutorial
+package com.example.nav_bar_module_java_tutorial.QuizFragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -29,7 +29,7 @@ class QuizFragment : Fragment() {
         // Handle button click
         binding.startQuizButton.setOnClickListener {
             // Create an Intent to start the activity
-            val intent = Intent(activity,QuizStartActivity::class.java)
+            val intent = Intent(activity, QuizStartActivity::class.java)
 
             // Optionally, you can pass data to the activity
             // intent.putExtra("key", "value")

@@ -1,4 +1,4 @@
-package com.example.nav_bar_module_java_tutorial
+package com.example.nav_bar_module_java_tutorial.QuestionsFragment
 
 import android.content.Context
 import android.os.Bundle
@@ -12,12 +12,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nav_bar_module_java_tutorial.databinding.FragmentInterviewQueBinding
+import com.example.nav_bar_module_java_tutorial.R
+import com.example.nav_bar_module_java_tutorial.databinding.FragmentQuestionsBinding
 import java.util.Locale
 
-class InterviewQueFragment : Fragment() {
+class QuestionsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private lateinit var recyclerView: RecyclerView
@@ -25,20 +27,54 @@ class InterviewQueFragment : Fragment() {
     private var mList = ArrayList<LanguageData>()
     private lateinit var adapter: LanguageAdapter
     private var param2: String? = null
-    private var _binding:FragmentInterviewQueBinding? = null
+    private var _binding:FragmentQuestionsBinding? = null
     private val binding get() = _binding!!
         override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
         ): View? {
             // Inflate the layout for this fragment using View Binding
-            _binding = FragmentInterviewQueBinding.inflate(inflater, container, false)
+            _binding = FragmentQuestionsBinding.inflate(inflater, container, false)
             return binding.root
         }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.cardLayout1.setOnClickListener {
+            binding.interviewQueText.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.white
+                )
+            )
+            binding.codingQueText.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.black
+                )
+            )
+            binding.cardLayout1.setBackgroundResource(R.drawable.gredient_background_program)
+            binding.cardLayout2.setBackgroundResource(R.drawable.bgcard)
+        }
+
+        binding.cardLayout2.setOnClickListener {
+            binding.interviewQueText.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.black
+                )
+            )
+            binding.codingQueText.setTextColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.white
+                )
+            )
+            binding.cardLayout2.setBackgroundResource(R.drawable.gredient_background_program)
+            binding.cardLayout1.setBackgroundResource(R.drawable.bgcard)
+        }
+
 
         // Hide ActionBar
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
@@ -49,6 +85,7 @@ class InterviewQueFragment : Fragment() {
         addDataToList()
         adapter = LanguageAdapter(mList,requireContext())
         binding.recyclerView.adapter = adapter
+
 
 
     }
@@ -223,7 +260,7 @@ data class LanguageData(
     var isExpandable: Boolean = false
 )
 
-class LanguageAdapter(private var mList: List<LanguageData>,val context: Context) :
+class LanguageAdapter(private var mList: List<LanguageData>, val context: Context) :
     RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder>() {
 
     inner class LanguageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

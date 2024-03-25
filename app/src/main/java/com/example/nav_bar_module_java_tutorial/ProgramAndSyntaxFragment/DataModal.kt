@@ -1,4 +1,4 @@
-package com.example.nav_bar_module_java_tutorial
+package com.example.nav_bar_module_java_tutorial.ProgramAndSyntaxFragment
 
 class DataModel(val nestedList: List<String>, val itemText: String) {
 
