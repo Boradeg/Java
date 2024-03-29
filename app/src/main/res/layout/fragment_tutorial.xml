@@ -3,11 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".TutorialFragment.TutorialFragment">
-    <androidx.recyclerview.widget.RecyclerView
+    <com.example.nav_bar_module_java_tutorial.TutorialFragment.CustomRecyclerView
         android:id="@+id/recycler_view"
+        android:layout_marginTop="10dp"
         tools:listitem="@layout/each_item_tutorial"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

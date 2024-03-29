@@ -23,6 +23,7 @@
                 android:background="@drawable/gredient2">
 
                 <TextView
+                    android:fontFamily="@font/roboto_bold"
                     android:id="@+id/program_tv"
                     android:layout_width="100dp"
                     android:layout_height="20dp"
@@ -58,6 +59,7 @@
                     android:background="@drawable/bgcard">
 
                     <TextView
+                        android:fontFamily="@font/roboto_regular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Show Program"

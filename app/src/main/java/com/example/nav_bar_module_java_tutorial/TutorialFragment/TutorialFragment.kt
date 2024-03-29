@@ -1,5 +1,6 @@
 package com.example.nav_bar_module_java_tutorial.TutorialFragment
 
+import ItemAdapterTutorial
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,6 +28,7 @@ class TutorialFragment : Fragment() {
 
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.setLayoutManager(LinearLayoutManager(requireContext()))
+        setDrawable()
 
 
         mList = ArrayList<DataModalTutorial>()
@@ -57,6 +59,12 @@ class TutorialFragment : Fragment() {
         nestedList3.add("Wall Paint")
         nestedList3.add("Furniture")
         nestedList3.add("Bedsits")
+        nestedList3.add("Tea Table")
+        nestedList3.add("Wall Paint")
+        nestedList3.add("Furniture")
+        nestedList3.add("Bedsits")
+        nestedList3.add("Certain")
+        nestedList3.add("Namkeen and Snacks")
         nestedList3.add("Certain")
         nestedList3.add("Namkeen and Snacks")
         nestedList3.add("Honey and Spreads")
@@ -88,6 +96,11 @@ class TutorialFragment : Fragment() {
 
 
         return binding.root
+    }
+
+    private fun setDrawable() {
+
+
     }
 
 

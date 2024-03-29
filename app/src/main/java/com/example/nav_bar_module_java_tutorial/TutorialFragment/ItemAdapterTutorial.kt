@@ -1,8 +1,3 @@
-package com.example.nav_bar_module_java_tutorial.TutorialFragment
-
-import com.example.nav_bar_module_java_tutorial.ProgramAndSyntaxFragment.NestedAdapter
-
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +5,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nav_bar_module_java_tutorial.R
+import com.example.nav_bar_module_java_tutorial.TutorialFragment.DataModalTutorial
+import com.example.nav_bar_module_java_tutorial.TutorialFragment.NestedAdapterTutorial
 
 class ItemAdapterTutorial(private val mList: ArrayList<DataModalTutorial>) : RecyclerView.Adapter<ItemAdapterTutorial.ItemViewHolder>() {
 
@@ -22,7 +19,7 @@ class ItemAdapterTutorial(private val mList: ArrayList<DataModalTutorial>) : Rec
         val model = mList[position]
         holder.mTextView.text = model.itemText
 
-        // Set LinearLayoutManager with horizontal orientation
+        // Set LinearLayoutManager with vertical orientation
         val layoutManager = LinearLayoutManager(holder.itemView.context, LinearLayoutManager.VERTICAL, false)
         holder.nestedRecyclerView.layoutManager = layoutManager
 
