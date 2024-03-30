@@ -1,0 +1,18 @@
+<!-- res/anim/bounce_animation.xml -->
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <scale
+        android:fromXScale="1.0"
+        android:toXScale="1.0"
+        android:fromYScale="1.0"
+        android:toYScale="1.0"
+        android:pivotX="50%"
+        android:pivotY="50%"/>
+
+    <translate
+        android:fromYDelta="-100%"
+        android:toYDelta="100%"
+        android:fromXDelta="0%"
+        android:toXDelta="0%"
+        android:duration="1000"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+</set>
