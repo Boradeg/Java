@@ -57,4 +57,8 @@ dependencies {
 
     //for text size
     implementation("com.intuit.sdp:sdp-android:1.0.6")
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
 }

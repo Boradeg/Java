@@ -33,9 +33,5 @@ class SplashActivity : AppCompatActivity() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        // Remove any pending callbacks to prevent memory leaks
-        handler.removeCallbacksAndMessages(null)
-    }
+
 }
