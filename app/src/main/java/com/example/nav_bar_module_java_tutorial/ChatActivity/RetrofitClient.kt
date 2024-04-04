@@ -13,6 +13,7 @@ object RetrofitClient {
         .readTimeout(60, TimeUnit.SECONDS)    // Read timeout
         .writeTimeout(60, TimeUnit.SECONDS)   // Write timeout
         .build()
+   // git repo create javaApp
 
     val instance: OpenAiApi by lazy {
         val retrofit = Retrofit.Builder()
