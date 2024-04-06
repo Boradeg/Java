@@ -19,27 +19,29 @@ import com.example.nav_bar_module_java_tutorial.R
 import com.example.nav_bar_module_java_tutorial.databinding.FragmentQuestionsBinding
 import java.util.Locale
 
+
 class QuestionsFragment : Fragment() {
 
-    private var mList = ArrayList<LanguageData>()
+    private var mList = ArrayList<QueData>()
     private lateinit var adapter: LanguageAdapter
-    private lateinit var db:NotesDBHelper
-    private var _binding:FragmentQuestionsBinding? = null
+    private lateinit var db: NotesDBHelper
+    private var _binding: FragmentQuestionsBinding? = null
     private val binding get() = _binding!!
-        override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-        ): View? {
-            // Inflate the layout for this fragment using View Binding
-            _binding = FragmentQuestionsBinding.inflate(inflater, container, false)
-            return binding.root
-        }
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment using View Binding
+        _binding = FragmentQuestionsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        db=NotesDBHelper(requireContext())
-        addAllNotesManually()
+
+        db = NotesDBHelper(requireContext())
+
         binding.cardLayout1.setOnClickListener {
             binding.interviewQueText.setTextColor(
                 ContextCompat.getColor(
@@ -74,20 +76,19 @@ class QuestionsFragment : Fragment() {
             binding.cardLayout1.setBackgroundResource(R.drawable.bgcard)
         }
 
-
         // Hide ActionBar
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
 
-
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        addDataToList()
-        adapter = LanguageAdapter(mList,requireContext())
+
+        adapter = LanguageAdapter(mList, requireContext())
         binding.recyclerView.adapter = adapter
 
-
-
+        addAllNotesManually()
+        loadNotes()
     }
+
     private fun addAllNotesManually() {
         val notesList = mutableListOf(
             QueData(0, "Why is multiple inheritance not supported in Java?", "Java does not support multiple inheritance because it can lead to complexities and ambiguities, such as the diamond problem."),
@@ -100,207 +101,56 @@ class QuestionsFragment : Fragment() {
         }
     }
 
-
-    private fun addDataToList() {
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-                "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-                "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-                "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-                "Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "C++ is a high-level general-purpose programming language created by Danish computer scientist Bjarne Stroustrup as an extension of the C programming language, or C with Classes."
-
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "Swift is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "C# is a general-purpose, high-level multi-paradigm programming language. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "Swift is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "C# is a general-purpose, high-level multi-paradigm programming language. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "Swift is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "C# is a general-purpose, high-level multi-paradigm programming language. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "Swift is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "C# is a general-purpose, high-level multi-paradigm programming language. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "Swift is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries."
-            )
-        )
-        mList.add(
-            LanguageData(
-                "Why is multiple inheritance not supported in java ?",
-
-                "C# is a general-purpose, high-level multi-paradigm programming language. C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines."
-            )
-        )
+    private fun loadNotes() {
+        val notes = db.getAllNotes()
+        adapter.updateNotes(notes)
     }
-
 }
-data class LanguageData(
-    val title: String,
-    val desc: String,
-    var isExpandable: Boolean = false
-)
 
-class LanguageAdapter(private var mList: List<LanguageData>, val context: Context) :
+class LanguageAdapter(private var mList: List<QueData>, val context: Context) :
     RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder>() {
 
     inner class LanguageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         val titleTv: TextView = itemView.findViewById(R.id.titleTv)
         val langDescTv: TextView = itemView.findViewById(R.id.langDesc)
         val constraintLayout: RelativeLayout = itemView.findViewById(R.id.constraintLayout)
 
-        fun collapseExpandedView(){
+        fun collapseExpandedView() {
             langDescTv.visibility = View.GONE
         }
     }
 
-    fun setFilteredList(mList: List<LanguageData>) {
-        this.mList = mList
-        notifyDataSetChanged()
-    }
-    private fun setAnimation(viewToAnimate: View, position: Int) {
-        val slide_in = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left)
-        viewToAnimate.startAnimation(slide_in)
-    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.each_item_interview_que, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.each_item_interview_que, parent, false)
         return LanguageViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: LanguageViewHolder, position: Int) {
-
         val languageData = mList[position]
 
-        holder.titleTv.text = languageData.title
-        holder.langDescTv.text = languageData.desc
+        holder.titleTv.text = languageData.question
+        holder.langDescTv.text = languageData.answer
 
         val isExpandable: Boolean = languageData.isExpandable
         holder.langDescTv.visibility = if (isExpandable) View.VISIBLE else View.GONE
 
-        setAnimation(holder.itemView,position)
+        setAnimation(holder.itemView, position)
 
         holder.constraintLayout.setOnClickListener {
             isAnyItemExpanded(position)
             languageData.isExpandable = !languageData.isExpandable
-            notifyItemChanged(position , Unit)
+            notifyItemChanged(position, Unit)
         }
     }
 
-    private fun isAnyItemExpanded(position: Int){
+    private fun isAnyItemExpanded(position: Int) {
         val temp = mList.indexOfFirst {
             it.isExpandable
         }
-        if (temp >= 0 && temp != position){
+        if (temp >= 0 && temp != position) {
             mList[temp].isExpandable = false
-            notifyItemChanged(temp , 0)
+            notifyItemChanged(temp, 0)
         }
     }
 
@@ -309,16 +159,26 @@ class LanguageAdapter(private var mList: List<LanguageData>, val context: Contex
         position: Int,
         payloads: MutableList<Any>
     ) {
-
-        if(payloads.isNotEmpty() && payloads[0] == 0){
+        if (payloads.isNotEmpty() && payloads[0] == 0) {
             holder.collapseExpandedView()
-        }else{
+        } else {
             super.onBindViewHolder(holder, position, payloads)
-
         }
     }
 
     override fun getItemCount(): Int {
         return mList.size
+    }
+
+
+
+    fun updateNotes(notes: List<QueData>) {
+        mList = notes
+        notifyDataSetChanged()
+    }
+
+    private fun setAnimation(viewToAnimate: View, position: Int) {
+        val slideIn = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left)
+        viewToAnimate.startAnimation(slideIn)
     }
 }
