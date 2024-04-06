@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nav_bar_module_java_tutorial.R
 import com.example.nav_bar_module_java_tutorial.TutorialFragment.DataModalTutorial
+import com.example.nav_bar_module_java_tutorial.TutorialFragment.MyView
 import com.example.nav_bar_module_java_tutorial.TutorialFragment.NestedAdapterTutorial
 
 class ItemAdapterTutorial(private val mList: ArrayList<DataModalTutorial>) : RecyclerView.Adapter<ItemAdapterTutorial.ItemViewHolder>() {
@@ -26,6 +27,8 @@ class ItemAdapterTutorial(private val mList: ArrayList<DataModalTutorial>) : Rec
         val adapter = NestedAdapterTutorial(model.nestedList)
         holder.nestedRecyclerView.setHasFixedSize(true)
         holder.nestedRecyclerView.adapter = adapter
+        holder.myView.setProgress(80.0F)
+
     }
 
     override fun getItemCount(): Int {
@@ -35,5 +38,7 @@ class ItemAdapterTutorial(private val mList: ArrayList<DataModalTutorial>) : Rec
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val mTextView: TextView = itemView.findViewById(R.id.text_heading)
         val nestedRecyclerView: RecyclerView = itemView.findViewById(R.id.nested_rv_tutorial)
+        val myView: MyView = itemView.findViewById(R.id.my_view)
+
     }
 }

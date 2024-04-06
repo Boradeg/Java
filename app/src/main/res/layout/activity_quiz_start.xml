@@ -16,7 +16,7 @@
             android:layout_height="60dp"
             android:orientation="horizontal"
             android:padding="10dp"
-            android:background="@drawable/gredient9"
+            android:background="@drawable/gredient_copy_main"
             android:id="@+id/tool_layout3"
             tools:ignore="MissingConstraints">
 

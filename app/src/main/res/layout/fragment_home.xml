@@ -175,7 +175,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/gredient2"
+                    android:background="@drawable/gredient_copy_main"
                     android:text="Learn Java !!!"
                     android:textAllCaps="false"
                     android:textColor="@color/white" />

@@ -20,7 +20,7 @@
                 android:layout_height="match_parent"
                 android:padding="6dp"
 
-                android:background="@drawable/gredient2">
+                android:background="@drawable/gredient_copy_main">
 
                 <TextView
                     android:fontFamily="@font/roboto_bold"
