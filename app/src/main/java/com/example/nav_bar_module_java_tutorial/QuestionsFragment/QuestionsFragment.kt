@@ -20,13 +20,10 @@ import com.example.nav_bar_module_java_tutorial.databinding.FragmentQuestionsBin
 import java.util.Locale
 
 class QuestionsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var searchView: SearchView
+
     private var mList = ArrayList<LanguageData>()
     private lateinit var adapter: LanguageAdapter
-    private var param2: String? = null
+    private lateinit var db:NotesDBHelper
     private var _binding:FragmentQuestionsBinding? = null
     private val binding get() = _binding!!
         override fun onCreateView(
@@ -41,6 +38,8 @@ class QuestionsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        db=NotesDBHelper(requireContext())
+        addAllNotesManually()
         binding.cardLayout1.setOnClickListener {
             binding.interviewQueText.setTextColor(
                 ContextCompat.getColor(
@@ -89,51 +88,41 @@ class QuestionsFragment : Fragment() {
 
 
     }
+    private fun addAllNotesManually() {
+        val notesList = mutableListOf(
+            QueData(0, "Why is multiple inheritance not supported in Java?", "Java does not support multiple inheritance because it can lead to complexities and ambiguities, such as the diamond problem."),
+            QueData(0, "What is Kotlin?", "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference."),
+            // Add more notes here as needed
+        )
 
-    private fun filterList(query: String?) {
-
-        if (query != null) {
-            val filteredList = ArrayList<LanguageData>()
-            for (i in mList) {
-                if (i.title.lowercase(Locale.ROOT).contains(query)) {
-                    filteredList.add(i)
-                }
-            }
-
-            if (filteredList.isEmpty()) {
-                Toast.makeText(requireContext(), "No Data found", Toast.LENGTH_SHORT).show()
-            } else {
-                adapter.setFilteredList(filteredList)
-            }
+        for (note in notesList) {
+            db.insertNote(note.question, note.answer)
         }
     }
+
 
     private fun addDataToList() {
         mList.add(
             LanguageData(
                 "Why is multiple inheritance not supported in java ?",
-
                 "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible."
             )
         )
         mList.add(
             LanguageData(
                 "Why is multiple inheritance not supported in java ?",
-
                 "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise."
             )
         )
         mList.add(
             LanguageData(
                 "Why is multiple inheritance not supported in java ?",
-
                 "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser."
             )
         )
         mList.add(
             LanguageData(
                 "Why is multiple inheritance not supported in java ?",
-
                 "Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation."
             )
         )
@@ -255,7 +244,6 @@ class QuestionsFragment : Fragment() {
 }
 data class LanguageData(
     val title: String,
-
     val desc: String,
     var isExpandable: Boolean = false
 )
@@ -268,9 +256,6 @@ class LanguageAdapter(private var mList: List<LanguageData>, val context: Contex
         val titleTv: TextView = itemView.findViewById(R.id.titleTv)
         val langDescTv: TextView = itemView.findViewById(R.id.langDesc)
         val constraintLayout: RelativeLayout = itemView.findViewById(R.id.constraintLayout)
-
-
-
 
         fun collapseExpandedView(){
             langDescTv.visibility = View.GONE

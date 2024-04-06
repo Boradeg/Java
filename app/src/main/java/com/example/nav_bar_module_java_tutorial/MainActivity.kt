@@ -1,5 +1,6 @@
 package com.example.nav_bar_module_java_tutorial
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -23,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.setupWithNavController(navController)
+
+        binding.chatFabButton.setOnClickListener{
+            startActivity(Intent(this,ChabotActivity::class.java))
+        }
+
     }
 
 
