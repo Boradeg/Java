@@ -1,6 +1,7 @@
 package com.example.nav_bar_module_java_tutorial.QuestionsFragment
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,6 +28,7 @@ class QuestionsFragment : Fragment() {
     private lateinit var db: NotesDBHelper
     private var _binding: FragmentQuestionsBinding? = null
     private val binding get() = _binding!!
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -78,14 +80,22 @@ class QuestionsFragment : Fragment() {
 
         // Hide ActionBar
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+        sharedPreferences = requireActivity().getSharedPreferences("APP_PREFS", Context.MODE_PRIVATE)
 
+        // Check if questions have been inserted previously
+        val isQuestionsInserted = sharedPreferences.getBoolean("QUESTIONS_INSERTED", false)
+        if (!isQuestionsInserted) {
+
+            addAllNotesManually()
+            // Mark questions as inserted in SharedPreferences
+            sharedPreferences.edit().putBoolean("QUESTIONS_INSERTED", true).apply()
+        }
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         adapter = LanguageAdapter(mList, requireContext())
         binding.recyclerView.adapter = adapter
 
-        addAllNotesManually()
         loadNotes()
     }
 

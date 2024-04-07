@@ -9,9 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper
 class NotesDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
-        private const val DATABASE_NAME = "que.db2"
+        private const val DATABASE_NAME = "DatabaseInterviewQue2"
         private const val DATABASE_VERSION = 1
-        private const val TABLE_NAME = "queTable"
+        private const val TABLE_NAME = "QuestionTable2"
         private const val COLUMN_ID = "id"
         private const val COLUMN_QUE = "Question1"
         private const val COLUMN_ANS = "Answer1"

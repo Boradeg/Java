@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:backgroundTint="@color/white"
-    android:background="@color/white"
+  android:background="#f2f3f8"
     android:layout_height="match_parent"
     tools:context=".QuizFragment.QuizStartActivity">
     <RelativeLayout
@@ -16,7 +15,7 @@
             android:layout_height="60dp"
             android:orientation="horizontal"
             android:padding="10dp"
-            android:background="@drawable/gredient_copy_main"
+            android:background="@drawable/gredient3"
             android:id="@+id/tool_layout3"
             tools:ignore="MissingConstraints">
 
@@ -51,10 +50,10 @@
 
 
         <RelativeLayout
+            android:background="#f2f3f8"
+
             android:layout_width="match_parent"
             android:layout_below="@+id/tool_layout3"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
 
             android:layout_marginHorizontal="20dp"
             android:layout_height="match_parent">
@@ -85,13 +84,14 @@
                     android:textColor="@color/white"
                     android:textSize="12dp"
                     />
+
                 <TextView
+                    android:id="@+id/que_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text1"
-                    android:text="1/25"
                     android:layout_marginStart="10dp"
-
+                    android:text="1/25"
                     android:textColor="@color/white"
                     android:textSize="14dp"
                     android:textStyle="bold" />
@@ -121,6 +121,7 @@
                     android:textSize="12dp"
                     />
                 <TextView
+                    android:id="@+id/que_level"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
@@ -147,6 +148,7 @@
                 >
 
                 <TextView
+                    android:id="@+id/que"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -206,6 +208,7 @@
                 android:background="@drawable/bgcard">
 
                 <TextView
+                    android:id="@+id/op1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -228,6 +231,7 @@
                 android:background="@drawable/bgcard">
 
                 <TextView
+                    android:id="@+id/op2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -249,6 +253,7 @@
                 android:background="@drawable/bgcard">
 
                 <TextView
+                    android:id="@+id/op3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -271,6 +276,7 @@
                 android:background="@drawable/bgcard">
 
                 <TextView
+                    android:id="@+id/op4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"

@@ -31,11 +31,13 @@ class QuizFragment : Fragment() {
             // Create an Intent to start the activity
             val intent = Intent(activity, QuizStartActivity::class.java)
 
-            // Optionally, you can pass data to the activity
-            // intent.putExtra("key", "value")
+            // Add extra data to the Intent
+            intent.putExtra("quiz_number", 10)
+            intent.putExtra("difficulty_level", "easy")
 
             // Start the activity
             startActivity(intent)
         }
+
     }
     }
