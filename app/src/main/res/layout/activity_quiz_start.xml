@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-  android:background="#f2f3f8"
     android:layout_height="match_parent"
     tools:context=".QuizFragment.QuizStartActivity">
     <RelativeLayout
@@ -50,11 +49,8 @@
 
 
         <RelativeLayout
-            android:background="#f2f3f8"
-
             android:layout_width="match_parent"
             android:layout_below="@+id/tool_layout3"
-
             android:layout_marginHorizontal="20dp"
             android:layout_height="match_parent">
             <View
@@ -152,11 +148,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:fontFamily="@font/roboto_bold"
                     android:padding="13dp"
                     android:text="Que : Why is multiple inheritance not supported in java Why is multiple inheritance not supported in java Why is multiple inheritance not supported in java Why is multiple inheritance not supported in java Why is multiple inheritance not supported in java Why is multiple inheritance not supported in java ?"
-                    android:textColor="@color/blue"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/black10"
+                    android:textSize="17dp" />
 
 
             </RelativeLayout>
@@ -175,14 +171,14 @@
                     android:layout_height="wrap_content"
                     android:text="Options"
                     android:textSize="20dp"
-                    android:textColor="@color/Quiz_text__color"
+                    android:textColor="@color/start_color"
                     android:textStyle="bold"
                     android:layout_centerHorizontal="true"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:background="@color/black"
+                    android:background="@color/start_color"
                     android:layout_toLeftOf="@+id/tv_DLevel2"
                     android:layout_marginHorizontal="10dp"
                     android:layout_centerVertical="true"/>
@@ -191,7 +187,7 @@
                     android:id="@+id/view9"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:background="@color/black"
+                    android:background="@color/start_color"
                     android:layout_toRightOf="@+id/tv_DLevel2"
                     android:layout_marginHorizontal="10dp"
                     android:layout_centerVertical="true"/>
@@ -212,11 +208,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:fontFamily="@font/roboto_medium"
                     android:padding="13dp"
                     android:text="Compilation fails"
-                    android:textColor="@color/line_color"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/black10"
+                    android:textSize="15dp" />
 
             </RelativeLayout>
 
@@ -235,11 +231,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:fontFamily="@font/roboto_medium"
                     android:padding="13dp"
                     android:text="bar done"
-                    android:textColor="@color/line_color"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/black10"
+                    android:textSize="15dp" />
 
             </RelativeLayout>
             <RelativeLayout
@@ -257,11 +253,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:fontFamily="@font/roboto_medium"
                     android:padding="13dp"
                     android:text="foo done"
-                    android:textColor="@color/line_color"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/black10"
+                    android:textSize="15dp" />
 
             </RelativeLayout>
             <RelativeLayout
@@ -282,9 +278,10 @@
                     android:layout_centerInParent="true"
                     android:padding="13dp"
                     android:text="bar"
-                    android:textColor="@color/line_color"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/black10"
+                    android:textSize="15dp"
+                 />
 
             </RelativeLayout>
 

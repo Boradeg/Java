@@ -2,6 +2,7 @@ package com.example.nav_bar_module_java_tutorial.QuizFragment
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.graphics.Color
@@ -9,7 +10,10 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.example.nav_bar_module_java_tutorial.R
 import com.example.nav_bar_module_java_tutorial.databinding.ActivityQuizStartBinding
+import kotlin.properties.Delegates
 import kotlin.random.Random
 
 class QuizStartActivity : AppCompatActivity() {
@@ -17,19 +21,28 @@ class QuizStartActivity : AppCompatActivity() {
     private lateinit var questionList: List<QuizQuestion>
     private var currentQuestionIndex: Int = 0
     private val quizDBHelper = QuizDBHelper(this)
+    private var userQueNeed:Int = 0
+    private var userDiffNeed:String = "easy"
+
+    // Retrieve extra data from the Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuizStartBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+         userQueNeed = intent.getIntExtra("quiz_number", 3)
+         userDiffNeed = intent.getStringExtra("difficulty_level").toString()
 
         // Retrieve extra data from the Intent
-        val quizNumber = intent.getIntExtra("quiz_number", 0)
-        val difficultyLevel = intent.getStringExtra("difficulty_level")
 
         // Add questions to the database if not already added
         addQuestionsToDatabaseIfNotAdded()
+
+        // Call displayQuestion function with the desired parameters
+        if (userDiffNeed != null) {
+            displayQuestion(10, userDiffNeed)
+        } // Change the number of questions and difficulty level here
 
         // Handle option clicks
         binding.option1.setOnClickListener { handleOptionClick(1) }
@@ -38,7 +51,7 @@ class QuizStartActivity : AppCompatActivity() {
         binding.option4.setOnClickListener { handleOptionClick(4) }
 
         // Display the first question
-        displayQuestion(currentQuestionIndex)
+        //displayQuestion(currentQuestionIndex)
     }
 
     private fun addQuestionsToDatabaseIfNotAdded() {
@@ -66,7 +79,6 @@ class QuizStartActivity : AppCompatActivity() {
             markQuestionsAsAdded()
         }
     }
-
     private fun handleOptionClick(selectedOptionIndex: Int) {
         // Disable all option buttons to prevent multiple clicks
         disableOptionButtons()
@@ -75,44 +87,43 @@ class QuizStartActivity : AppCompatActivity() {
         val selectedOption = selectedOptionIndex
         val correctOption = questionList[currentQuestionIndex].correctOption
 
-        // Change the background color of the selected option to black
-        setOptionBackgroundColor(selectedOption, "#f44236")
-
-        // Show the correct option with a green background
-        setOptionBackgroundColor(correctOption, "#5bb35d")
+        setOptionBackgroundGradient(selectedOption, R.drawable.bgcard_red)
+        setOptionBackgroundGradient(correctOption, R.drawable.bgcard_green)
 
         // Delay for 2 seconds using Handler
         Handler().postDelayed({
             // Increment the current question index
             currentQuestionIndex++
-
-            // Check if there are more questions
-            if (currentQuestionIndex < questionList.size) {
-                // Display the next question
-                displayQuestion(currentQuestionIndex)
+            if (currentQuestionIndex < userQueNeed) {
+                // Display the next question with appropriate difficulty level and number of questions
+                displayQuestion(10, userDiffNeed.toString()) // Change difficulty level and number of questions as needed
             } else {
                 // No more questions, show end of quiz message
                 Toast.makeText(this, "End of Quiz", Toast.LENGTH_SHORT).show()
-
+                startActivity(Intent(this,QuizResultActivity::class.java))
                 // Handle end of quiz (e.g., show quiz result or navigate to another activity)
             }
+
 
             // Reset the background color of all option buttons
             resetOptionButtonBackgrounds()
 
             // Enable option buttons again
             enableOptionButtons()
-        }, 2000)
+        }, 1000)
     }
 
-    private fun setOptionBackgroundColor(optionIndex: Int, color: String) {
+    private fun setOptionBackgroundGradient(optionIndex: Int, gradientResId: Int) {
+        val gradientDrawable = ContextCompat.getDrawable(this, gradientResId)
+
         when (optionIndex) {
-            1 -> binding.option1.setBackgroundColor(Color.parseColor(color))
-            2 -> binding.option2.setBackgroundColor(Color.parseColor(color))
-            3 -> binding.option3.setBackgroundColor(Color.parseColor(color))
-            4 -> binding.option4.setBackgroundColor(Color.parseColor(color))
+            1 -> binding.option1.background = gradientDrawable
+            2 -> binding.option2.background = gradientDrawable
+            3 -> binding.option3.background = gradientDrawable
+            4 -> binding.option4.background = gradientDrawable
         }
     }
+
 
     private fun disableOptionButtons() {
         binding.option1.isEnabled = false
@@ -129,11 +140,12 @@ class QuizStartActivity : AppCompatActivity() {
     }
 
     private fun resetOptionButtonBackgrounds() {
-        binding.option1.setBackgroundColor(Color.WHITE)
-        binding.option2.setBackgroundColor(Color.WHITE)
-        binding.option3.setBackgroundColor(Color.WHITE)
-        binding.option4.setBackgroundColor(Color.WHITE)
+        binding.option1.background = ContextCompat.getDrawable(this, R.drawable.bgcard)
+        binding.option2.background = ContextCompat.getDrawable(this, R.drawable.bgcard)
+        binding.option3.background = ContextCompat.getDrawable(this, R.drawable.bgcard)
+        binding.option4.background = ContextCompat.getDrawable(this, R.drawable.bgcard)
     }
+
 
     private fun areQuestionsAdded(): Boolean {
         val sharedPreferences = getSharedPreferences("APP_PREFS", Context.MODE_PRIVATE)
@@ -145,9 +157,12 @@ class QuizStartActivity : AppCompatActivity() {
         sharedPreferences.edit().putBoolean("QUESTIONS_ADDED", true).apply()
     }
 
-    private fun displayQuestion(index: Int) {
-        questionList = quizDBHelper.getQuestionsByDifficulty("easy") // Change difficulty level here
-        val question = questionList[index]
+    private fun displayQuestion(numQuestions: Int, difficultyLevel: String) {
+        questionList = quizDBHelper.getQuestionsByDifficulty(difficultyLevel).shuffled().take(numQuestions)
+        // Now you have questions based on the specified difficulty level and number
+        // Proceed with displaying these questions as desired
+        // Example:
+        val question = questionList[currentQuestionIndex]
         binding.que.text = question.questionText
         binding.op1.text = question.option1
         binding.op2.text = question.option2
