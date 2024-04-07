@@ -70,8 +70,8 @@
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
+            tools:listitem="@layout/each_item_coding_que"
             android:layout_width="match_parent"
-            tools:listitem="@layout/each_item_interview_que"
             android:layout_height="match_parent"
             />
 

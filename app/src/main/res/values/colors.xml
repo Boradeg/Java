@@ -12,6 +12,12 @@
     <color name="blue_black">#FF000000</color>
     <color name="line_color">#7B65A3</color>
     <color name="Quiz_text__color">#5E07FA</color>
+    <color name="start_color">#231a6c</color>
+    <color name="end_color">#6668bf</color>
+    <color name="black10">#171f24</color>
+    <color name="red">#f44236</color>
+    <color name="green">#5ab45d</color>
+    <color name="blue10_que">#3E3F73</color>
 
 
 </resources>

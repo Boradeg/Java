@@ -27,15 +27,13 @@
                 android:layout_height="wrap_content"
                 android:text="Difficulty Level"
                 android:textSize="20dp"
-                android:textColor="@color/Quiz_text__color"
-                android:textStyle="bold"
-
-                android:layout_centerHorizontal="true"
+                android:textColor="@color/start_color"
+                android:fontFamily="@font/roboto_bold"                 android:layout_centerHorizontal="true"
                 />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"
+                android:background="@color/start_color"
                 android:layout_toLeftOf="@+id/tv_DLevel"
                 android:layout_marginHorizontal="10dp"
                 android:layout_centerVertical="true"
@@ -43,7 +41,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"
+                android:background="@color/start_color"
                 android:layout_toRightOf="@+id/tv_DLevel"
                 android:layout_marginHorizontal="10dp"
                 android:layout_centerVertical="true"
@@ -62,14 +60,16 @@
             android:background="@drawable/bgcard">
 
             <TextView
+                android:id="@+id/easy_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:fontFamily="@font/roboto_medium"
                 android:padding="13dp"
                 android:text="Beginner"
-                android:textColor="@color/line_color"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textColor="@color/black10"
+                android:textSize="17dp" />
+
 
         </RelativeLayout>
         <RelativeLayout
@@ -83,14 +83,15 @@
             android:background="@drawable/bgcard">
 
             <TextView
+                android:id="@+id/medium_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:fontFamily="@font/roboto_medium"
                 android:padding="13dp"
                 android:text="Intermediate"
-                android:textColor="@color/line_color"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textColor="@color/black10"
+                android:textSize="17dp" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -104,14 +105,15 @@
             android:background="@drawable/bgcard">
 
             <TextView
+                android:id="@+id/expert_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:fontFamily="@font/roboto_medium"
                 android:padding="13dp"
                 android:text="Expert"
-                android:textColor="@color/line_color"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textColor="@color/black10"
+                android:textSize="17dp" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -129,14 +131,13 @@
                 android:layout_height="wrap_content"
                 android:text="Number of Questions"
                 android:textSize="20dp"
-                android:textColor="@color/Quiz_text__color"
-                android:textStyle="bold"
-                android:layout_centerHorizontal="true"
+                android:textColor="@color/start_color"
+                android:fontFamily="@font/roboto_bold"                 android:layout_centerHorizontal="true"
                 />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"
+                android:background="@color/start_color"
                 android:layout_toLeftOf="@+id/tv_DLevel2"
                 android:layout_marginHorizontal="10dp"
                 android:layout_centerVertical="true"
@@ -144,65 +145,73 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"
+                android:background="@color/start_color"
                 android:layout_toRightOf="@+id/tv_DLevel2"
                 android:layout_marginHorizontal="10dp"
                 android:layout_centerVertical="true"
                 />
 
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/que10_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/layout_no_of_que2"
-            android:elevation="23dp"
-            android:paddingHorizontal="15dp"
-            android:layout_margin="20dp"
-            android:background="@drawable/bgcard"
             android:layout_below="@+id/layout_no_of_que"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
 
-            >
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bgcard"
+            android:elevation="23dp"
+            android:paddingHorizontal="15dp">
+
             <TextView
+                android:id="@+id/que10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
-                android:textSize="20dp"
-                android:padding="13dp"
                 android:layout_alignParentLeft="true"
-                android:textColor="@color/line_color"
-                android:textStyle="bold"
                 android:layout_centerHorizontal="true"
-                />
+                android:fontFamily="@font/roboto_medium"
+                android:padding="13dp"
+                android:text="10"
+                android:textColor="@color/black10"
+                android:textSize="20dp" />
 
 
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/que25_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/layout_no_of_que4"
-            android:elevation="23dp"
-            android:paddingHorizontal="15dp"
-            android:layout_margin="20dp"
-            android:background="@drawable/bgcard"
             android:layout_below="@+id/layout_no_of_que"
             android:layout_alignParentRight="true"
-            >
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bgcard"
+            android:elevation="23dp"
+            android:paddingHorizontal="15dp">
+
             <TextView
+                android:id="@+id/que25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="25"
-                android:textSize="20dp"
-                android:padding="13dp"
-                android:textColor="@color/line_color"
-                android:textStyle="bold"
                 android:layout_centerHorizontal="true"
-                />
+                android:fontFamily="@font/roboto_medium"
+                android:padding="13dp"
+                android:text="25"
+                android:textColor="@color/black10"
+                android:textSize="20dp" />
 
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/layout_no_of_que5"
+            android:id="@+id/que15_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout_no_of_que"
@@ -216,13 +225,14 @@
             android:paddingHorizontal="15dp">
 
             <TextView
+                android:id="@+id/que_15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
                 android:padding="13dp"
                 android:text="15"
-                android:textColor="@color/line_color"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textColor="@color/black10"
+                android:textSize="20dp" />
 
 
         </RelativeLayout>
@@ -230,13 +240,14 @@
             android:layout_width="match_parent"
             android:id="@+id/startQuizButton"
             android:layout_height="wrap_content"
-            android:layout_below="@id/layout_no_of_que5"
+            android:layout_below="@id/que15_layout"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/gredient_copy_main"
             android:text="Start Quiz"
+            android:textSize="17dp"
             android:textAllCaps="false"
             android:textColor="@color/white" />
 
