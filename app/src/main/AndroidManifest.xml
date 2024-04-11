@@ -14,18 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.Nav_bar_module_java_tutorial."
         tools:targetApi="31">
+
+        <activity
+            android:name=".ProgramAndSyntaxFragment.ShowProgramSyntaxActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".QuizFragment.QuizResultActivity"
             android:exported="false" />
         <activity
             android:name=".ChabotActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".SplashActivity2"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".QuizFragment.QuizStartActivity"
             android:exported="false" />
