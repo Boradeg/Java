@@ -95,6 +95,7 @@ class QuizStartActivity : AppCompatActivity() {
             } else {
                 // No more questions, show end of quiz message
                 Toast.makeText(this, "End of Quiz", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "End of Quiz", Toast.LENGTH_SHORT).show()
 
                 // Handle end of quiz (e.g., show quiz result or navigate to another activity)
             }
