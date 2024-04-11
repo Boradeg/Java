@@ -49,10 +49,7 @@ class QuizResultActivity() : AppCompatActivity() {
         val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
         // Retrieve existing data or default values
-        val date = sharedPreferences.getString(KEY_DATE, "")
-        val beginnerScore = sharedPreferences.getInt(KEY_BEGINNER_SCORE, 0)
-        val intermediateScore = sharedPreferences.getInt(KEY_INTERMEDIATE_SCORE, 0)
-        val expertScore = sharedPreferences.getInt(KEY_EXPERT_SCORE, 0)
+
         val beginnerCount = sharedPreferences.getInt(KEY_BEGINNER_COUNT, 0)
         val intermediateCount = sharedPreferences.getInt(KEY_INTERMEDIATE_COUNT, 0)
         val expertCount = sharedPreferences.getInt(KEY_EXPERT_COUNT, 0)
