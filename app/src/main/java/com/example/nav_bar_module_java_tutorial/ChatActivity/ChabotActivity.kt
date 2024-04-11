@@ -31,6 +31,7 @@ class ChabotActivity : AppCompatActivity() {
     lateinit var messageRV:RecyclerView
     lateinit var messageRvAdapter: MessageRvAdapter
     private lateinit var progressBar: ProgressBar
+    private lateinit var TAG: String
     lateinit var messageList:ArrayList<MessageRvModel>
 
     @SuppressLint("MissingInflatedId", "NotifyDataSetChanged", "ClickableViewAccessibility")
@@ -38,6 +39,8 @@ class ChabotActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chabot)
         supportActionBar?.hide()
+         TAG = "ChabotActivity"
+        Log.d(TAG, "Activity statt")
 
         queryEdit=findViewById(R.id.idEdtQuery)
         messageRV=findViewById(R.id.rv)
@@ -160,10 +163,14 @@ class ChabotActivity : AppCompatActivity() {
         call.enqueue(object : Callback<ChatResponse> {
 
             override fun onResponse(call: Call<ChatResponse>, response: retrofit2.Response<ChatResponse>) {
+                Log.d(TAG, "onResponse triggered")
+
                 progressBar.visibility = View.GONE
                 finishAPICall()
 
                 if (response.isSuccessful) {
+                    Log.d(TAG, "Response is successful")
+
                     val chatResponse: ChatResponse? = response.body()
                     messageList.add(
                         MessageRvModel(
@@ -177,6 +184,12 @@ class ChabotActivity : AppCompatActivity() {
                     messageRvAdapter.notifyDataSetChanged()
                     queryEdit.text.clear()
                 } else {
+                    Log.d(TAG, "Response is not successful")
+
+                    // Retrieve error message from response if available
+                    val errorMessage = response.errorBody()?.string()
+                    Log.e(TAG, "Error message: $errorMessage")
+
                     Toast.makeText(
                         this@ChabotActivity,
                         "Failed to get response. Please try again.",
@@ -186,12 +199,15 @@ class ChabotActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ChatResponse>, t: Throwable) {
+                Log.e(TAG, "onFailure triggered with error: " + t.message)
+
                 Toast.makeText(this@ChabotActivity, "Failed to get response. Please try again.", Toast.LENGTH_SHORT)
                     .show()
                 progressBar.visibility = View.GONE
                 finishAPICall()
             }
         })
+
     }
     private fun startAPICall() {
         queryEdit.isEnabled = false
