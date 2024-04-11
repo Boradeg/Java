@@ -1,6 +1,7 @@
 package com.example.nav_bar_module_java_tutorial.ProgramAndSyntaxFragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nav_bar_module_java_tutorial.R
 import com.example.nav_bar_module_java_tutorial.databinding.FragmentProgramAndSyntaxBinding
 
-class ProgramAndSyntaxFragment : Fragment() {
 
-    private var recyclerView: RecyclerView? = null
-    private var mList: List<DataModel>? = null
-    private var mList3: List<DataModel3>? = null
-    private var adapter: ItemAdapter? = null
+class ProgramAndSyntaxFragment : Fragment() {
+    private val dataList: MutableList<DataModel> = mutableListOf()
+    private lateinit var itemRecyclerView: RecyclerView
+    private lateinit var itemAdapter: ItemAdapter
     private var _binding: FragmentProgramAndSyntaxBinding? = null
     private val binding get() = _binding!!
 
@@ -25,9 +25,40 @@ class ProgramAndSyntaxFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProgramAndSyntaxBinding.inflate(inflater, container, false)
+        Log.d(TAG, "onCreateView")
 
+        setCardLayoutButton()
 
+        // Initialize RecyclerView
+        itemRecyclerView = binding.mainRecyclervie
+        Log.d(TAG, "RecyclerView initialized")
+
+        // Initialize Adapter
+        itemAdapter = ItemAdapter(dataList)
+        Log.d(TAG, "Adapter initialized")
+
+        // Set LinearLayoutManager to RecyclerView
+        itemRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        // Set Adapter to RecyclerView
+        itemRecyclerView.adapter = itemAdapter
+        Log.d(TAG, "Adapter set to RecyclerView")
+
+        // Populate data list
+        populateDataList()
+
+        // Notify adapter of data change
+        itemAdapter.notifyDataSetChanged()
+        Log.d(TAG, "Data set changed")
+
+        return binding.root
+    }
+
+    private fun setCardLayoutButton() {
         binding.cardLayout1.setOnClickListener {
+            // Set card layout 1
+            Log.d(TAG, "Card Layout 1 clicked")
+            // Notify the adapter that the data set has changed
             binding.programText.setTextColor(
                 ContextCompat.getColor(
                     requireContext(),
@@ -36,7 +67,7 @@ class ProgramAndSyntaxFragment : Fragment() {
             )
             binding.syntaxText.setTextColor(
                 ContextCompat.getColor(
-                   requireContext(),
+                    requireContext(),
                     R.color.black
                 )
             )
@@ -45,9 +76,12 @@ class ProgramAndSyntaxFragment : Fragment() {
         }
 
         binding.cardLayout2.setOnClickListener {
+            // Set card layout 2
+            Log.d(TAG, "Card Layout 2 clicked")
+            // Notify the adapter that the data set has changed
             binding.programText.setTextColor(
                 ContextCompat.getColor(
-                   requireContext(),
+                    requireContext(),
                     R.color.black
                 )
             )
@@ -60,78 +94,32 @@ class ProgramAndSyntaxFragment : Fragment() {
             binding.cardLayout2.setBackgroundResource(R.drawable.gredient_background_program)
             binding.cardLayout1.setBackgroundResource(R.drawable.bgcard)
         }
+    }
 
+    private fun populateDataList() {
+        // Add some sample data to your data list (dataList)
+        val nestedList1 = listOf(
+            "key1" to "value1",
+            "key2" to "value2"
+        )
+        val nestedList2 = listOf(
+            "key3" to "value3",
+            "key4" to "value4"
+        )
 
-
-
-        binding.mainRecyclervie.setHasFixedSize(true)
-        binding.mainRecyclervie.setLayoutManager(LinearLayoutManager(requireContext()))
-
-
-        mList = ArrayList<DataModel>()
-        mList3 = ArrayList<DataModel3>()
-
-        val nestedList1: MutableList<String> = ArrayList()
-        nestedList1.add("Pune-Satara Road Widening")
-//        nestedList1.add("Nipani-Chikodi Road Widening")
-//        nestedList1.add("Daund - Bhigwan Line Survey")
-//        nestedList1.add("Chyawanprash and Health Foods")
-
-//
-//        val nestedList2: MutableList<String> = ArrayList()
-//        nestedList2.add("Book")
-//        nestedList2.add("Pen")
-//        nestedList2.add("Office Chair")
-//        nestedList2.add("Pencil")
-//        nestedList2.add("Eraser")
-//        nestedList2.add("NoteBook")
-//        nestedList2.add("Map")
-//        nestedList2.add("Office Table")
-//
-//        val nestedList3: MutableList<String> = ArrayList()
-//        nestedList3.add("Decorates")
-//        nestedList3.add("Tea Table")
-//        nestedList3.add("Wall Paint")
-//        nestedList3.add("Furniture")
-//        nestedList3.add("Bedsits")
-//        nestedList3.add("Certain")
-//        nestedList3.add("Namkeen and Snacks")
-//        nestedList3.add("Honey and Spreads")
-
-
-//        items.add("Drone Survey")
-//        items.add("MMRDA Daund")
-//        items.add("MMRDA Daund")
-//        items.add("MMRDA Daund")
-//        items.add("MMRDA Daund")
-//        items.add("MMRDA Daund")
-//        items.add("MMRDA Daund")
-//        items.add("MMRDA Daund")
-//        items.add("MMRDA Daund")
-        val items: MutableList<String> = ArrayList()
-        items.add("Introduction")
-        (mList as ArrayList<DataModel>).add(DataModel(nestedList1, "Introduction"))
-        (mList3 as ArrayList<DataModel3>).add(DataModel3(Data1("subhead","content"),"basic"))
-
-//        (mList as ArrayList<DataModel>).add(DataModel(nestedList2, items[1]))
-//        (mList as ArrayList<DataModel>).add(DataModel(nestedList3, items[2]))
-//        (mList as ArrayList<DataModel>).add(DataModel(nestedList3, items[3]))
-//        (mList as ArrayList<DataModel>).add(DataModel(nestedList3, items[4]))
-//        (mList as ArrayList<DataModel>).add(DataModel(nestedList3, items[5]))
-//
-
-
-        adapter = ItemAdapter(mList as ArrayList<DataModel>)
-        binding.mainRecyclervie.setAdapter(adapter)
-
-
-
-
-        return binding.root
+        // Add DataModel instances to your dataList
+        dataList.add(DataModel(nestedList1, "Example Text 1"))
+        dataList.add(DataModel(nestedList2, "Example Text 2"))
+        // Add more DataModel instances as needed
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+    companion object {
+        private const val TAG = "ProgramAndSyntaxFragment"
+    }
 }
+

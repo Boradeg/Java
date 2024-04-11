@@ -3,7 +3,9 @@ package com.example.nav_bar_module_java_tutorial.ProgramAndSyntaxFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nav_bar_module_java_tutorial.R
@@ -18,6 +20,7 @@ class ItemAdapter(private val mList: List<DataModel>) : RecyclerView.Adapter<Ite
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val model = mList[position]
         holder.mTextView.text = model.itemText
+
 
         // Set LinearLayoutManager with horizontal orientation
         val layoutManager = LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
@@ -35,5 +38,6 @@ class ItemAdapter(private val mList: List<DataModel>) : RecyclerView.Adapter<Ite
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val mTextView: TextView = itemView.findViewById(R.id.itemTv)
         val nestedRecyclerView: RecyclerView = itemView.findViewById(R.id.child_rv)
+        //val layout_show_prog: RelativeLayout = itemView.findViewById(R.id.layout_show_prog)
     }
 }

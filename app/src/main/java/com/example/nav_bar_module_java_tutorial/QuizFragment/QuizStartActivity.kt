@@ -17,6 +17,8 @@ class QuizStartActivity : AppCompatActivity() {
     private lateinit var questionList: List<QuizQuestion>
     private var currentQuestionIndex: Int = 0
     private val quizDBHelper = QuizDBHelper(this)
+  private lateinit var quizNumber:String
+  private lateinit var difficultyLevel:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +27,8 @@ class QuizStartActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         // Retrieve extra data from the Intent
-        val quizNumber = intent.getIntExtra("quiz_number", 0)
-        val difficultyLevel = intent.getStringExtra("difficulty_level")
+         quizNumber = intent.getIntExtra("quiz_number", 0).toString()
+         difficultyLevel = intent.getStringExtra("difficulty_level").toString()
 
         // Add questions to the database if not already added
         addQuestionsToDatabaseIfNotAdded()
@@ -146,7 +148,7 @@ class QuizStartActivity : AppCompatActivity() {
     }
 
     private fun displayQuestion(index: Int) {
-        questionList = quizDBHelper.getQuestionsByDifficulty("easy") // Change difficulty level here
+        questionList = quizDBHelper.getQuestionsByDifficulty(difficultyLevel) // Change difficulty level here
         val question = questionList[index]
         binding.que.text = question.questionText
         binding.op1.text = question.option1
