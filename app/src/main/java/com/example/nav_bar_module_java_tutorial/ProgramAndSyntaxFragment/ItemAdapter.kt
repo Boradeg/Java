@@ -3,14 +3,15 @@ package com.example.nav_bar_module_java_tutorial.ProgramAndSyntaxFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nav_bar_module_java_tutorial.R
 
-class ItemAdapter(private val mList: List<DataModel>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(
+private val mList: List<DataModel>,
+// Callback for item click
+) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.each_item_program, parent, false)
@@ -21,14 +22,17 @@ class ItemAdapter(private val mList: List<DataModel>) : RecyclerView.Adapter<Ite
         val model = mList[position]
         holder.mTextView.text = model.itemText
 
-
         // Set LinearLayoutManager with horizontal orientation
         val layoutManager = LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
         holder.nestedRecyclerView.layoutManager = layoutManager
 
+        // Create an instance of NestedAdapter with the fragment manager
         val adapter = NestedAdapter(model.nestedList)
+
         holder.nestedRecyclerView.setHasFixedSize(true)
         holder.nestedRecyclerView.adapter = adapter
+
+
     }
 
     override fun getItemCount(): Int {
@@ -38,6 +42,5 @@ class ItemAdapter(private val mList: List<DataModel>) : RecyclerView.Adapter<Ite
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val mTextView: TextView = itemView.findViewById(R.id.itemTv)
         val nestedRecyclerView: RecyclerView = itemView.findViewById(R.id.child_rv)
-        //val layout_show_prog: RelativeLayout = itemView.findViewById(R.id.layout_show_prog)
     }
 }
